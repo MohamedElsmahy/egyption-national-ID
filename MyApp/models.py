@@ -36,20 +36,21 @@ governorates_code = {
 
 
 class National_ID(models.Model):
-    national_id = models.BigIntegerField()
+    #national_id = models.BigIntegerField(max_length=14)
+    national_id = "29001011234567"
 
     '''National ID class, will include the skelton of it's properties
     and verification.
     '''
-    class Meta:
-        verbose_name = 'the one person id'
-        verbose_name_plural = 'people IDs'
+    # class Meta:
+    #     verbose_name = 'the one person id'
+    #     verbose_name_plural = 'people IDs'
 
 
 
-    # def __init__(self , national_id -> int):
+    def __init__(self , national_id):
     ## national_id (int): Egyptian national id number 
-    # self.national_id = national_id
+        self.national_id = national_id
 
     def _validate(self):
         # Validates the id number parts
@@ -90,7 +91,7 @@ class National_ID(models.Model):
     def get_info(self):
         # Process the data from the id number into readable format
         # Returns:
-        #     tuple(bool, str): True if valid_id else False, json string for the collective information that will return to user
+        # tuple(bool, str): True if valid_id else False, json string for the collective information that will return to user
         
         id_owner_data = {}
         if not self._validate():
