@@ -79,20 +79,14 @@ def validate(national_id):
 
     else:
         return False
-    print (governorate)
+    
     if not f'{governorate}' in governorates_code:
         return False
-    
-    #governorate_check = governorate in governorates_code
-    #return all([century_check, year_check, month_check, day_check, governorate_check])
-
-    # if not validate():
-    #     number_error_msg = f"Invalid national ID number: {national_id}. Please enter the correct one"
-    #     return False, {"error": number_error_msg}
 
     # Process the data from the id number into readable format
     # Returns:
-    # tuple(bool, str): True if valid_id else False, json string for the collective information that will return to user 
+    # tuple(bool, str): True if valid_id else False, json string for the collective information that will return to user
+     
     id_owner_data = {}
     id_owner_data["year_of_birth"] = f"20{year}" if century == 3 else f"19{year}"
     id_owner_data["month_of_birth"] = f"{month}"
